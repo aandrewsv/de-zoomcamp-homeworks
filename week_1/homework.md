@@ -11,17 +11,20 @@ Run the command to get information on Docker
 
 Now run the command to get help on the "docker build" command
 
-Runned;
+**Runned:**
 ```bash
 docker build --help
 ```
+**In the Output:**
 
-then just read the answer of the console
+```bash
+        --iidfile string          Write the image ID to the file
+```
 
 Which tag has the following text? - *Write the image ID to the file* 
 
 - `--imageid string`
-- `--iidfile string`    X
+- **`--iidfile string`(X)**
 - `--idimage string`
 - `--idfile string`
 
@@ -32,30 +35,28 @@ Run docker with the python:3.9 image in an interactive mode and the entrypoint o
 Now check the python modules that are installed ( use pip list). 
 How many python packages/modules are installed?
 
-runned:
+**Runned:**
 ```bash
 sudo docker run -it python:3.9 bash
 ```
 
-then inside runned:
+**Then inside container**:
 ```bash
 pip list
 ```
 
-output: 
+**Output:**
 ```bash
 Package    Version
 ---------- -------
 pip        22.0.4
 setuptools 58.1.0
 wheel      0.38.4
-WARNING: You are using pip version 22.0.4; however, version 22.3.1 is available.
-You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.
 ```
 
 - 1
 - 6
-- 3     X
+- **3(X)**
 - 7
 
 ## Question 3. Count records 
@@ -67,14 +68,14 @@ Tip: started and finished on 2019-01-15.
 Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in the format timestamp (date and hour+min+sec) and not in date.
 
 
-Ran the query:
+**Runned:**
 ```sql
 SELECT COUNT(*) FROM green_taxi_data
  WHERE date(lpep_pickup_datetime) = date '2019-01-15' 
  AND date(lpep_dropoff_datetime) = date '2019-01-15';
 ```
 
-Output:
+**Output:**
 ```bash
 +-------+
 | count |
@@ -86,7 +87,7 @@ Time: 0.065s
 ```
 
 - 20689
-- 20530     X
+- **20530(X)**
 - 17630
 - 21090
 
@@ -96,12 +97,12 @@ Time: 0.065s
 Which was the day with the largest trip distance
 Use the pick up time for your calculations.
 
-Ran the query:
+**Runned:**
 ```sql
 SELECT lpep_pickup_datetime, trip_distance FROM green_taxi_data ORDER BY trip_distance DESC limit 1;
 ```
 
-Output:
+**Output:**
 ```bash
 +----------------------+---------------+
 | lpep_pickup_datetime | trip_distance |
@@ -114,19 +115,19 @@ Time: 0.093s
 
 - 2019-01-18
 - 2019-01-28
-- 2019-01-15    X
+- **2019-01-15(X)**
 - 2019-01-10
 
 ## Question 5. The number of passengers
 
 In 2019-01-01 how many trips had 2 and 3 passengers?
 
-Ran the query:
+**Runned:**
 ```sql
 SELECT COUNT(*) FROM green_taxi_data WHERE date(lpep_pickup_datetime) = date '2019-01-01' AND passenger_count = 2;
 ```
 
-Output:
+**Output:**
 ```bash
 +-------+
 | count |
@@ -136,12 +137,12 @@ Output:
 SELECT 1
 Time: 0.062s
 ```
-Ran the query:
+**Runned:**
 ```sql
 SELECT COUNT(*) FROM green_taxi_data WHERE date(lpep_pickup_datetime) = date '2019-01-01' AND passenger_count = 3;
 ```
 
-Output:
+**Output:**
 ```bash
 +-------+
 | count |
@@ -154,7 +155,7 @@ Time: 0.062s
 
 - 2: 1282 ; 3: 266
 - 2: 1532 ; 3: 126
-- 2: 1282 ; 3: 254      X
+- **2: 1282 ; 3: 254(X)**
 - 2: 1282 ; 3: 274
 
 
@@ -166,11 +167,11 @@ We want the name of the zone, not the id.
 Note: it's not a typo, it's `tip` , not `trip`
 
 
-First I find out wich LocationID the Astoria Zone has:
+**Find LocationID of Astoria Zone**
 ```sql
 SELECT "Zone", "LocationID" FROM taxi_zone_lookup WHERE "Zone" = 'Astoria';
 ```
-Output:
+**Output:**
 ```bash
 +---------+------------+
 | Zone    | LocationID |
@@ -183,12 +184,12 @@ Output:
 SELECT 4
 Time: 0.007s
 ```
-Now that I now Astoria's LocationID is 7 I can filter the trips by Pickup Location ID and order them by the biggest tip amount:
+**Astoria's LocationID is 7. Now I filter the trips by PULocationID and order them by the biggest tip amount**
 ```sql
 SELECT "PULocationID", "DOLocationID", tip_amount FROM green_taxi_data WHERE "PULocationID" = 7 ORDER BY tip_amount DESC LIMIT 1;
 ```
 
-Output:
+**Output:**
 ```bash
 +--------------+--------------+------------+
 | PULocationID | DOLocationID | tip_amount |
@@ -198,15 +199,16 @@ Output:
 SELECT 1
 Time: 0.061s
 ```
-Now I have the biggest tip of the pickups in Astoria and its Dropoff Location ID which is 146
+**Now I have the biggest tip of the pickups in Astoria and its DOLocationID is 146**
 
-Now I ran the query to find out wich zone it is:
+
+**Runned:**
 ```sql
 SELECT "Zone", "LocationID" FROM taxi_zone_lookup WHERE "LocationID" = 146;
 ```
 
 
-Output:
+**Output:**
 ```bash
 +-------------------------------+------------+
 | Zone                          | LocationID |
@@ -223,5 +225,4 @@ Time: 0.008s
 - Central Park
 - Jamaica
 - South Ozone Park
-- Long Island City/Queens Plaza     X
-
+- **Long Island City/Queens Plaza(X)**
