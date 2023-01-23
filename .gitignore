@@ -1,1 +1,3 @@
-week_1/ingest_script/output.csv
+week_1/docker_compose/data/**
+./.vscode/**
+

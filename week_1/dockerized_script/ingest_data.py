@@ -115,8 +115,8 @@ def main(params):
         # Here adjust the data types of the table to your needs, otherwise ignore and
         # just leave the pass in the function
         
-        df_chunk.lpep_pickup_datetime = pd.to_datetime(df_chunk.lpep_pickup_datetime)
-        df_chunk.lpep_dropoff_datetime = pd.to_datetime(df_chunk.lpep_dropoff_datetime)
+        # df_chunk.lpep_pickup_datetime = pd.to_datetime(df_chunk.lpep_pickup_datetime)
+        # df_chunk.lpep_dropoff_datetime = pd.to_datetime(df_chunk.lpep_dropoff_datetime)
         pass
     
     
