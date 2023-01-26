@@ -1,3 +1,9 @@
 week_1/docker_compose/data/**
 ./.vscode/**
 
+week_1/terraform/.terraform/providers/registry.terraform.io/hashicorp/google/4.50.0/linux_amd64/terraform-provider-google_v4.50.0_x5
+week_1/terraform/.terraform/terraform.tfstate
+week_1/terraform/terraform.tfstate
+week_1/terraform/.terraform.lock.hcl
+week_1/terraform/.terraform/**
+week_1/terraform/terraform.tfstate.backup
